@@ -10,11 +10,12 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        raleway: ['var(--font-raleway)', 'sans-serif'],
         serif: ['var(--font-playfair)', 'serif'],
+        dancing: ['var(--font-dancing)', 'cursive'],
       },
     },
   },
   plugins: [],
 }
 export default config
-

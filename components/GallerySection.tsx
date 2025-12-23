@@ -1,8 +1,25 @@
+import Image from 'next/image'
+
 export default function GallerySection() {
   const galleryCategories = [
-    { title: 'WEDDINGS', subtitle: 'YOU AND YOURS', count: '1/9' },
-    { title: 'EDITORIAL', subtitle: 'CREATIVE EXPRESSIONS', count: '1/4' },
-    { title: 'PUBLISHED', subtitle: 'IN PRINT', count: '1/5' },
+    {
+      title: 'WEDDINGS',
+      subtitle: 'YOU AND YOURS',
+      count: '1/9',
+      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+    },
+    {
+      title: 'EDITORIAL',
+      subtitle: 'CREATIVE EXPRESSIONS',
+      count: '1/4',
+      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
+    },
+    {
+      title: 'PUBLISHED',
+      subtitle: 'IN PRINT',
+      count: '1/5',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80',
+    },
   ]
 
   return (
@@ -11,10 +28,14 @@ export default function GallerySection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {galleryCategories.map((category, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">Image {index + 1}</span>
-                </div>
+              <div className="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden relative">
+                <Image
+                  src={category.image}
+                  alt={category.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
               <div className="text-center">
                 <p className="text-sm tracking-widest uppercase mb-2">{category.count}</p>
@@ -32,4 +53,3 @@ export default function GallerySection() {
     </section>
   )
 }
-

@@ -24,19 +24,20 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-serif font-semibold tracking-tight">
-            THAT GODDESS GLOW
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-sm' : 'bg-transparent'
+      }`}
+    >
+      <div className="w-full px-6 lg:px-12">
+        <div
+          className={`flex items-center h-20 transition-colors duration-300 relative ${
+            scrolled ? 'text-black' : 'text-white'
+          }`}
+        >
+          {/* Navigation Items on Left */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            {navLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -47,31 +48,52 @@ export default function Navigation() {
             ))}
           </div>
 
+          {/* Logo Centered */}
+          <Link
+            href="/"
+            className={`absolute left-1/2 transform -translate-x-1/2 text-[1.25rem] font-serif font-semibold tracking-tight transition-colors duration-300 ${
+              scrolled ? 'text-black opacity-100' : 'text-white opacity-40'
+            }`}
+          >
+            THAT GODDESS GLOW
+          </Link>
+
+          {/* Right side - empty for now, can add icons later */}
+          <div className="ml-auto"></div>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex flex-col space-y-1.5"
+            className="md:hidden flex flex-col space-y-1.5 ml-auto"
             aria-label="Toggle menu"
           >
-            <span className={`w-6 h-px bg-black transition-all duration-300 ${
-              isOpen ? 'rotate-45 translate-y-2' : ''
-            }`} />
-            <span className={`w-6 h-px bg-black transition-all duration-300 ${
-              isOpen ? 'opacity-0' : ''
-            }`} />
-            <span className={`w-6 h-px bg-black transition-all duration-300 ${
-              isOpen ? '-rotate-45 -translate-y-2' : ''
-            }`} />
+            <span
+              className={`w-6 h-px transition-all duration-300 ${
+                scrolled ? 'bg-black' : 'bg-white'
+              } ${isOpen ? 'rotate-45 translate-y-2' : ''}`}
+            />
+            <span
+              className={`w-6 h-px transition-all duration-300 ${
+                scrolled ? 'bg-black' : 'bg-white'
+              } ${isOpen ? 'opacity-0' : ''}`}
+            />
+            <span
+              className={`w-6 h-px transition-all duration-300 ${
+                scrolled ? 'bg-black' : 'bg-white'
+              } ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}
+            />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-        isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-      }`}>
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
         <div className="px-6 py-6 bg-white border-t">
-          {navLinks.map((link) => (
+          {navLinks.map(link => (
             <Link
               key={link.href}
               href={link.href}
@@ -86,4 +108,3 @@ export default function Navigation() {
     </nav>
   )
 }
-

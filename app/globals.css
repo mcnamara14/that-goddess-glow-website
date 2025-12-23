@@ -4,7 +4,22 @@
 
 :root {
   --font-inter: 'Inter', system-ui, sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
   --font-playfair: 'Playfair Display', serif;
+  --font-dancing: 'Dancing Script', cursive;
+}
+
+p {
+  font-family: var(--font-raleway);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 20px;
+  }
 }
 
 * {
@@ -32,7 +47,12 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-playfair);
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -41,6 +61,15 @@ h1, h2, h3, h4, h5, h6 {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -66,4 +95,3 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #333;
 }
-

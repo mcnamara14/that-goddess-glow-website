@@ -52,7 +52,7 @@ export default function Navigation() {
           <Link
             href="/"
             className={`absolute left-1/2 transform -translate-x-1/2 text-[1.25rem] font-serif font-semibold tracking-tight transition-colors duration-300 ${
-              scrolled ? 'text-black opacity-100' : 'text-white opacity-40'
+              scrolled ? 'text-black opacity-100' : 'text-white opacity-100'
             }`}
           >
             THAT GODDESS GLOW

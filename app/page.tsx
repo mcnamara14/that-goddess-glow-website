@@ -7,6 +7,7 @@ import MultiDayServices from '@/components/MultiDayServices'
 import ServicesSection from '@/components/ServicesSection'
 import GallerySection from '@/components/GallerySection'
 import TestimonialsSection from '@/components/TestimonialsSection'
+import PortraitCarousel from '@/components/PortraitCarousel'
 import CTA from '@/components/CTA'
 
 export default function Home() {
@@ -16,11 +17,12 @@ export default function Home() {
       <QuoteSection />
       <AboutSection />
       {/* <QuoteHighlightSection /> */}
-      <ServicesCarousel />
+      {/* <ServicesCarousel /> */}
+      <PortraitCarousel />
       <MultiDayServices />
-      <ServicesSection />
-      <GallerySection />
       <TestimonialsSection />
+      {/* <ServicesSection /> */}
+      {/* <GallerySection /> */}
       <CTA />
     </>
   )

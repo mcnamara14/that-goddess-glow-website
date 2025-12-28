@@ -95,3 +95,17 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #333;
 }
+
+/* Portrait Carousel Styles */
+.portrait-carousel .slick-slide {
+  padding: 0;
+}
+
+.portrait-carousel .slick-list {
+  overflow: visible;
+}
+
+.portrait-carousel .slick-slide > div {
+  width: 100%;
+  height: 400px;
+}

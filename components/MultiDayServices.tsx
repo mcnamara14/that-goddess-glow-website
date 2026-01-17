@@ -45,20 +45,10 @@ export default function MultiDayServices() {
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isTextVisible, setIsTextVisible] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Start image crossfade
       setCurrentIndex(prev => (prev + 1) % services.length)
-
-      // Fade out text during image transition
-      setIsTextVisible(false)
-
-      // After image crossfade completes, fade text back in
-      setTimeout(() => {
-        setIsTextVisible(true)
-      }, 1500) // Wait for image crossfade to complete
     }, 6000) // Change every 6 seconds
 
     return () => clearInterval(interval)
@@ -69,35 +59,39 @@ export default function MultiDayServices() {
   return (
     <section className="py-24 md:py-12 bg-white">
       <div className="max-w-[1100px] mx-auto px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-[60px] min-h-[500px]">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-[60px] h-[500px]">
           {/* Left Side - Text Content */}
           <div
-            className="flex items-center justify-center px-8 lg:px-12 py-12 lg:py-16"
+            className="flex items-start justify-start px-8 lg:px-12 py-12 lg:py-16 flex-1"
             style={{ minHeight: '500px' }}
           >
-            <div className="w-full space-y-6 relative">
-              <AnimatePresence mode="wait">
+            <div className="w-full max-w-none space-y-6 relative" style={{ minHeight: '400px' }}>
+              {services.map((service, index) => (
                 <motion.div
-                  key={currentIndex}
+                  key={index}
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: isTextVisible ? 1 : 0 }}
+                  animate={{ opacity: index === currentIndex ? 1 : 0 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="space-y-6"
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="space-y-6 absolute top-0 left-0 right-0 w-full"
+                  style={{ pointerEvents: index === currentIndex ? 'auto' : 'none' }}
                 >
                   <h3 className="text-xs md:text-sm font-sans font-normal tracking-[0.15em] uppercase text-black/70">
-                    ABOUT {currentService.title.replace(/-/g, ' ')}
+                    ABOUT {service.title.replace(/-/g, ' ')}
                   </h3>
 
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-light tracking-tight uppercase leading-[1.1]">
-                    {currentService.title === 'MULTI-DAY SERVICES'
+                    {service.title === 'MULTI-DAY SERVICES'
                       ? 'MORE OF YOU, LESS OF US.'
-                      : currentService.title}
+                      : service.title}
                   </h2>
 
                   <div className="space-y-3 pt-2">
-                    {currentService.description.map((paragraph, index) => (
-                      <p key={index} className="text-sm md:text-base leading-relaxed text-black/80">
+                    {service.description.map((paragraph, pIndex) => (
+                      <p
+                        key={pIndex}
+                        className="text-sm md:text-base leading-relaxed text-black/80"
+                      >
                         {paragraph}
                       </p>
                     ))}
@@ -109,13 +103,13 @@ export default function MultiDayServices() {
                     </button>
                   </div>
                 </motion.div>
-              </AnimatePresence>
+              ))}
             </div>
           </div>
 
           {/* Right Side - Image with Crossfade */}
           <div
-            className="relative overflow-hidden bg-white flex-shrink-0 border"
+            className="relative overflow-hidden bg-white flex-shrink-0 border rounded-[15px]"
             style={{
               width: '400px',
               minWidth: '400px',

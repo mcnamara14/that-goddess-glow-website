@@ -17,7 +17,7 @@ export default function QuoteHighlightSection() {
                 src="/Eyliner.webp"
                 alt="Eyeliner makeup products"
                 fill
-                className="object-contain object-top"
+                className="object-contain object-top rounded-[15px]"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{
                   filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))',

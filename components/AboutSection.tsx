@@ -5,18 +5,18 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-24 md:py-32 relative overflow-hidden"
+      className="py-24 md:py-24 relative overflow-hidden"
       style={{
-        backgroundColor: '#f5f3f0',
+        backgroundColor: '#efe2e2',
         backgroundImage: `radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
                          radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 50%)`,
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
           {/* Black and White Photo on Left */}
-          <div className="relative">
-            <div className="relative aspect-[3/4] overflow-hidden border-4 border-white">
+          <div className="relative w-full">
+            <div className="relative aspect-[3/4] w-full max-w-[500px] overflow-hidden border-4 border-white rounded-[15px] max-h-[600px]">
               <Image
                 src="/tiffany-thater.jpg"
                 alt="Tiffany Thater, Makeup Artist"
@@ -28,7 +28,7 @@ export default function AboutSection() {
           </div>
 
           {/* Content on Right */}
-          <div className="space-y-6">
+          <div className="space-y-6 pl-[30px]">
             <p className="text-sm tracking-[0.2em] uppercase text-black/70 font-serif">
               WE'RE THAT GODDESS GLOW
             </p>
@@ -57,7 +57,7 @@ export default function AboutSection() {
             <div className="pt-4">
               <Link
                 href="#about"
-                className="inline-block px-8 py-3 border border-black/20 bg-white text-black text-sm tracking-widest uppercase hover:bg-black hover:text-white transition-all duration-300"
+                className="inline-block px-8 py-3 border border-black/20 bg-white text-black text-sm tracking-widest uppercase hover:bg-black hover:text-white transition-all duration-300 rounded-[8px]"
               >
                 ABOUT TIFFANY
               </Link>

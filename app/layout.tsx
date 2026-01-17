@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display, Dancing_Script, Raleway } from 'next/font/google'
 import './globals.css'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 const inter = Inter({
@@ -43,7 +42,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${raleway.variable} ${playfair.variable} ${dancingScript.variable}`}
     >
       <body>
-        <Navigation />
         <main>{children}</main>
         <Footer />
       </body>

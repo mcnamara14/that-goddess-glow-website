@@ -15,13 +15,19 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navLinks = [
+  const leftNavLinks = [
     { href: '/', label: 'Home' },
     { href: '/#about', label: 'About' },
     { href: '/#services', label: 'Services' },
-    { href: '/#gallery', label: 'Gallery' },
-    { href: '/#contact', label: 'Contact' },
   ]
+
+  const rightNavLinks = [
+    { href: '/#portfolio', label: 'Portfolio' },
+    { href: '/#contact', label: 'Contact' },
+    { href: '/#blog', label: 'Blog' },
+  ]
+
+  const navLinks = [...leftNavLinks, ...rightNavLinks]
 
   return (
     <nav
@@ -31,11 +37,21 @@ export default function Navigation() {
     >
       <div className="w-full px-6 lg:px-12">
         <div
-          className={`flex items-center h-20 transition-colors duration-300 relative ${
+          className={`flex items-center justify-between h-20 transition-colors duration-300 ${
             scrolled ? 'text-black' : 'text-white'
           }`}
         >
-          {/* Navigation Items on Left */}
+          {/* Logo - Left aligned with hero copy */}
+          <Link
+            href="/"
+            className={`text-[1.25rem] font-serif font-semibold tracking-tight transition-colors duration-300 ${
+              scrolled ? 'text-black opacity-100' : 'text-white opacity-100'
+            }`}
+          >
+            THAT GODDESS GLOW
+          </Link>
+
+          {/* Navigation Items on Right - aligned with right side of hero */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navLinks.map(link => (
               <Link
@@ -47,19 +63,6 @@ export default function Navigation() {
               </Link>
             ))}
           </div>
-
-          {/* Logo Centered */}
-          <Link
-            href="/"
-            className={`absolute left-1/2 transform -translate-x-1/2 text-[1.25rem] font-serif font-semibold tracking-tight transition-colors duration-300 ${
-              scrolled ? 'text-black opacity-100' : 'text-white opacity-100'
-            }`}
-          >
-            THAT GODDESS GLOW
-          </Link>
-
-          {/* Right side - empty for now, can add icons later */}
-          <div className="ml-auto"></div>
 
           {/* Mobile Menu Button */}
           <button

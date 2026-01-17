@@ -13,6 +13,7 @@ const config: Config = {
         raleway: ['var(--font-raleway)', 'sans-serif'],
         serif: ['var(--font-playfair)', 'serif'],
         dancing: ['var(--font-dancing)', 'cursive'],
+        clocks: ['var(--font-clocks)', 'serif'],
       },
     },
   },

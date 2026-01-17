@@ -36,35 +36,41 @@ export default function Hero() {
     <>
       <section className="relative min-h-[70vh] flex items-center justify-center bg-white pt-20 overflow-visible">
         {/* Background Images with fade */}
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute left-0 right-0 z-0 transition-opacity duration-1000 ${
-              index === currentIndex && isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={
-              index === 0
-                ? {
-                    top: '-300px',
-                    height: 'calc(100% + 300px)',
-                  }
-                : {
-                    top: '-150px',
-                    height: 'calc(100% + 150px)',
-                  }
-            }
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-              priority={index === 0}
-              sizes="100vw"
-              style={{ objectPosition: 'center top' }}
-            />
-          </div>
-        ))}
+        <div className="absolute inset-0 z-0">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute transition-opacity duration-1000 ${
+                index === currentIndex && isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={
+                index === 0
+                  ? {
+                      top: '-200px',
+                      left: 0,
+                      right: 0,
+                      height: 'calc(100% + 200px)',
+                    }
+                  : {
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                    }
+              }
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                sizes="100vw"
+                style={{ objectPosition: 'center top' }}
+              />
+            </div>
+          ))}
+        </div>
 
         {/* Colored overlay for brand aesthetic */}
         <div className="absolute inset-0 z-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />

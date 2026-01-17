@@ -60,3 +60,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Customization
 
 You can customize the content, colors, and styling by editing the component files and the `tailwind.config.ts` file.
+# thatgoddessglow
